@@ -7,16 +7,66 @@ Content-Type: application/json
 
 {
   "gameId": 123,
+  "position": 1
+}
+
+###
+
+PUT http://localhost:8080/makeMove
+Content-Type: application/json
+
+{
+  "gameId": 123,
   "position": 2
 }
 
 ###
 
-PUT http://localhost:8080/endGame
+PUT http://localhost:8080/makeMove
 Content-Type: application/json
 
 {
-  "gameId": 123
+  "gameId": 123,
+  "position": 5
 }
 
 ###
+
+PUT http://localhost:8080/makeMove
+Content-Type: application/json
+
+{
+  "gameId": 123,
+  "position": 3
+}
+
+###
+
+PUT http://localhost:8080/makeMove
+Content-Type: application/json
+
+{
+  "gameId": 123,
+  "position": 9
+}
+
+###
+
+PUT http://localhost:8080/makeMove
+Content-Type: application/json
+
+{
+  "gameId": 123,
+  "position": 1
+}
+
+###
+
+PUT http://localhost:8080/makeMove
+Content-Type: application/json
+
+{
+  "gameId": 123,
+  "position": 1
+}
+

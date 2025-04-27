@@ -40,7 +40,10 @@ export class Game {
 
     for (const { line, index } of lines) {
       if (line[0] && line[0] === line[1] && line[1] === line[2]) {
-        return { winner: line[0], line: index }; // Return winner and the winning line
+        const winner = line[0];
+        if (winner !== null) {
+          return { winner, line: index }; // Return winner and the winning line
+        }
       }
     }
 
