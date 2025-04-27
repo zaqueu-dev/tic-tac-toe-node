@@ -3,7 +3,7 @@ import { Game } from "./Game.js";
 import { processGameImage } from "./processImage.js";
 import path from "path";
 
-const currentGames = [];
+export const currentGames = [];
 
 /**
  * Starts a new game of Tic Tac Toe, choosing a random player to go first.
@@ -11,7 +11,7 @@ const currentGames = [];
  */
 export async function startNewGame() {
   const firstPlayer = chooseFirstPlayer();
-  const game = new Game(firstPlayer, Date.now());
+  const game = new Game(firstPlayer, 123 /* Date.now() */);
   currentGames.push(game);
 
   const imagePath = path.join(

@@ -1,1 +1,22 @@
 GET http://localhost:8080/newGame
+
+###
+
+PUT http://localhost:8080/makeMove
+Content-Type: application/json
+
+{
+  "gameId": 123,
+  "position": 2
+}
+
+###
+
+PUT http://localhost:8080/endGame
+Content-Type: application/json
+
+{
+  "gameId": 123
+}
+
+###
