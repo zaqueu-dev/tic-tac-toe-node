@@ -12,8 +12,7 @@ export class Game {
       [null, null, null],
     ];
     this.gameId = gameId;
-    this.firstPlayer = firstPlayer; // firstPlayer = X or O
-    this.secondPlayer = firstPlayer === "X" ? "O" : "X";
+    this.currentPlayer = firstPlayer; // X = 1 ; O = 0
     this.base64 = "";
   }
 
@@ -41,18 +40,27 @@ export class Game {
 
     return null; // No winner yet
   }
-
-  makeMove(position, player) {
+  async makeMove(position) {
     const { board } = this;
     row = Math.floor(position / 3);
     col = position % 3;
-    if (board[row][col] === null) {
-      board[row][col] = player;
-      return true; // Move was successful
+    if (!this.isFull) {
+      if (board[row][col] === null) {
+        board[row][col] = this.currentPlayer;
+        this.currentPlayer = this.currentPlayer === 1 ? 0 : 1;
+
+        const imagePath = path.join(
+          path.dirname(fileURLToPath(import.meta.url)),
+          "../../assets/board.png"
+        );
+        const { base64 } = await processGameImage(imagePath, this.gameId);
+        this.base64 = base64;
+
+        return true; // Move was successful
+      }
     }
     return false; // Move was not successful (cell already occupied)
   }
-
   endGame() {
     this.board = [
       [null, null, null],
@@ -69,33 +77,6 @@ export class Game {
       }
     }
     return true; // No empty cells found
-  }
-  getCurrentPlayer() {
-    const moves = this.getMoves();
-    return moves.length % 2 === 0 ? this.firstPlayer : this.secondPlayer;
-  }
-  getMoves() {
-    const moves = [];
-    for (let row = 0; row < 3; row++) {
-      for (let col = 0; col < 3; col++) {
-        if (this.board[row][col] !== null) {
-          moves.push(this.board[row][col]);
-        }
-      }
-    }
-    return moves;
-  }
-  getGameId() {
-    return this.gameId;
-  }
-  getBoard() {
-    return this.board;
-  }
-  getFirstPlayer() {
-    return this.firstPlayer;
-  }
-  getSecondPlayer() {
-    return this.secondPlayer;
   }
   getGameState() {
     return {

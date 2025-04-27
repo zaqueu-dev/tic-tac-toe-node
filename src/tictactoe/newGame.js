@@ -30,5 +30,5 @@ export async function startNewGame() {
  * @returns {string} - Either "X" or "O", chosen randomly.
  */
 export function chooseFirstPlayer() {
-  return Math.random() < 0.5 ? "X" : "O";
+  return Math.random() < 0.5 ? 1 : 0;
 }
