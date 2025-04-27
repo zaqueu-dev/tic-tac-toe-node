@@ -1,0 +1,27 @@
+{
+  "name": "what-tac-toe",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/zaqueu-dev/tic-tac-toe-node#readme",
+  "bugs": {
+    "url": "https://github.com/zaqueu-dev/tic-tac-toe-node/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaqueu-dev/tic-tac-toe-node.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/api/server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "fs-extra": "^11.3.0",
+    "sharp": "^0.34.1"
+  },
+  "devDependencies": {}
+}
